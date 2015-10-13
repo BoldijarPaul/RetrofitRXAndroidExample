@@ -76,7 +76,6 @@ public class GithubLoginPresenter extends RxPresenter<GithubLoginView> {
     }
 
     private GithubServiceApi createServiceApi() {
-
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint("https://api.github.com")
                 .build();

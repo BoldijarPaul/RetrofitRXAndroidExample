@@ -39,11 +39,9 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
 
 
     private GithubLoginPresenter mPresenter;
-    private Observable<View> mSearchButtonObservable;
 
     public GithubSearchFragment() {
         setRetainInstance(true);
-
     }
 
 
@@ -72,7 +70,6 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
     @Override
     public void onViewCreated(final View view, final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         if (mPresenter == null) {
             mPresenter = new GithubLoginPresenter(this);
         }
@@ -87,7 +84,7 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
 
     @Override
     public void presentUser(User user) {
-        mResultTextView.setText(user.getName() + "\n" + user.getLocation());
+        mResultTextView.setText(user.toString());
     }
 
 
