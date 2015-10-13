@@ -1,6 +1,8 @@
 package com.example.paul.retrofitrxandroidexample.Fragments;
 
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,22 +13,36 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.paul.retrofitrxandroidexample.View.GithubUserView;
+import com.example.paul.retrofitrxandroidexample.Models.User;
+import com.example.paul.retrofitrxandroidexample.Presenter.GithubLoginPresenter;
+import com.example.paul.retrofitrxandroidexample.View.GithubLoginView;
 import com.example.paul.retrofitrxandroidexample.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GithubSearchFragment extends Fragment implements GithubUserView {
+public class GithubSearchFragment extends Fragment implements GithubLoginView {
 
     private EditText mUserLogin;
     private Button mSearchButton;
     private TextView mResultTextView;
 
+
+    private GithubLoginPresenter mPresenter;
+
     public GithubSearchFragment() {
         // Required empty public constructor
+
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        if (mPresenter == null) {
+            mPresenter = new GithubLoginPresenter(this);
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,5 +59,10 @@ public class GithubSearchFragment extends Fragment implements GithubUserView {
     @Override
     public void showError(String message) {
         Toast.makeText(getActivity(), getActivity().getString(R.string.msg_error_login), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void getUser(User user) {
+        mResultTextView.setText(user.getName() + "\n" + user.getLocation());
     }
 }
