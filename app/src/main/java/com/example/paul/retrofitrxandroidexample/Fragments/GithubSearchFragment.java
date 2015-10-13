@@ -35,7 +35,7 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
     @Bind(R.id.fragment_github_search_button)
     Button mSearchButton;
     @Bind(R.id.fragment_github_search_text)
-    private TextView mResultTextView;
+    TextView mResultTextView;
 
 
     private GithubLoginPresenter mPresenter;
