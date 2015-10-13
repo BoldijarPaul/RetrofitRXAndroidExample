@@ -51,13 +51,18 @@ public class User {
         this.location = location;
     }
 
-    public static User getMockUser() {
-        User user = new User();
-        user.setName("Paul");
-        user.setId(10);
-        user.setLocation("location");
-        user.setLogin("paul");
-        user.setCompany("compani");
-        return user;
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(name)
+                .append('\n')
+                .append(company)
+                .append('\n')
+                .append(location)
+                .append('\n')
+                .append(login)
+                .append('\n')
+                .append(id);
+        return builder.toString();
     }
 }
