@@ -101,7 +101,7 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
 
     @Override
     public String getLoginText() {
-        return mUserLogin.getText().toString();
+        return mUserLogin.getText().toString().trim();
     }
 
 
