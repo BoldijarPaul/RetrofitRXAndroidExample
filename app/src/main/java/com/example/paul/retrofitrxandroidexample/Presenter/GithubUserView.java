@@ -10,8 +10,6 @@ import rx.Observable;
  */
 public interface GithubUserView {
 
-    @NonNull
-    Observable<View> onSearchClick();
 
     public void showError(String message);
 
