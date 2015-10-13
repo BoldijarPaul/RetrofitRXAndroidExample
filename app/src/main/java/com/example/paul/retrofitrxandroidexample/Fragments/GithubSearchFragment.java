@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.paul.retrofitrxandroidexample.Presenter.GithubUserView;
+import com.example.paul.retrofitrxandroidexample.View.GithubUserView;
 import com.example.paul.retrofitrxandroidexample.R;
 
 /**

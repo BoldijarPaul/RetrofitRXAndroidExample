@@ -1,4 +1,4 @@
-package com.example.paul.retrofitrxandroidexample.Presenter;
+package com.example.paul.retrofitrxandroidexample.View;
 
 import android.support.annotation.NonNull;
 import android.view.View;
