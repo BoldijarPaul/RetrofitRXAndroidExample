@@ -21,6 +21,8 @@ import com.example.paul.retrofitrxandroidexample.R;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.view.ViewClickEvent;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import rx.Observable;
 
 /**
@@ -28,8 +30,11 @@ import rx.Observable;
  */
 public class GithubSearchFragment extends Fragment implements GithubLoginView {
 
-    private EditText mUserLogin;
-    private Button mSearchButton;
+    @Bind(R.id.fragment_github_search_login)
+    EditText mUserLogin;
+    @Bind(R.id.fragment_github_search_button)
+    Button mSearchButton;
+    @Bind(R.id.fragment_github_search_text)
     private TextView mResultTextView;
 
 
@@ -53,9 +58,7 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_github_search, container, false);
-        mUserLogin = (EditText) view.findViewById(R.id.fragment_github_search_login);
-        mSearchButton = (Button) view.findViewById(R.id.fragment_github_search_button);
-        mResultTextView = (TextView) view.findViewById(R.id.fragment_github_search_text);
+        ButterKnife.bind(this, view);
         return view;
     }
 
