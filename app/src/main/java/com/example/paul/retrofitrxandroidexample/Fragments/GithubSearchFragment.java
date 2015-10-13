@@ -46,12 +46,6 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
 
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
