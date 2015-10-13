@@ -50,4 +50,14 @@ public class User {
     public void setLocation(String location) {
         this.location = location;
     }
+
+    public static User getMockUser() {
+        User user = new User();
+        user.setName("Paul");
+        user.setId(10);
+        user.setLocation("location");
+        user.setLogin("paul");
+        user.setCompany("compani");
+        return user;
+    }
 }

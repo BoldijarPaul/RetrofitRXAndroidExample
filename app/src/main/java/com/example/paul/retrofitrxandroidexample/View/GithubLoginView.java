@@ -1,9 +1,11 @@
 package com.example.paul.retrofitrxandroidexample.View;
 
 import android.support.annotation.NonNull;
+import android.support.annotation.StringRes;
 import android.view.View;
 
 import com.example.paul.retrofitrxandroidexample.Models.User;
+import com.jakewharton.rxbinding.view.ViewClickEvent;
 
 import rx.Observable;
 
@@ -13,7 +15,12 @@ import rx.Observable;
 public interface GithubLoginView {
 
 
-    public void showError(String message);
+    public void showError(@StringRes int messageId);
 
-    public void getUser(User user);
+
+    public void presentUser(User user);
+
+    public Observable<ViewClickEvent> submitClick();
+
+    public String getLoginText();
 }
