@@ -5,9 +5,12 @@ import com.example.paul.retrofitrxandroidexample.Modules.GithubModules;
 
 import dagger.Component;
 
+/**
+ * Created by BoldijarPaul on 14/10/15.
+ */
 @Component(
         modules = GithubModules.class
 )
-interface DemoApplicationComponent {
-        AppApplication injectApplication(AppApplication application);
+public interface ApplicationComponent {
+    AppApplication injectApplication(AppApplication application);
 }
