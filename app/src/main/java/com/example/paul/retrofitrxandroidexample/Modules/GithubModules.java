@@ -14,9 +14,7 @@ import retrofit.RestAdapter;
 @Module
 public class GithubModules {
 
-    public GithubLoginPresenter provideGithubLoginPresenter(GithubLoginView githubLoginView) {
-        return new GithubLoginPresenter(githubLoginView);
-    }
+
 
     @Provides
     public GithubServiceApi provideGithubServiceApi() {
