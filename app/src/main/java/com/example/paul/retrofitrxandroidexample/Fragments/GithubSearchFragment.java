@@ -4,8 +4,8 @@ package com.example.paul.retrofitrxandroidexample.Fragments;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.support.annotation.StringRes;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +20,8 @@ import com.example.paul.retrofitrxandroidexample.View.GithubLoginView;
 import com.example.paul.retrofitrxandroidexample.R;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.view.ViewClickEvent;
+
+import javax.inject.Inject;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -38,10 +40,10 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
     TextView mResultTextView;
 
 
+
     private GithubLoginPresenter mPresenter;
 
     public GithubSearchFragment() {
-        setRetainInstance(true);
     }
 
 
@@ -68,11 +70,17 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
     }
 
     @Override
-    public void onViewCreated(final View view, final Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         if (mPresenter == null) {
             mPresenter = new GithubLoginPresenter(this);
         }
+    }
+
+    @Override
+    public void onViewCreated(final View view, final Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         mPresenter.wakeUp();
     }
 

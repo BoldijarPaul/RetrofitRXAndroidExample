@@ -11,6 +11,8 @@ import com.jakewharton.rxbinding.view.ViewClickEvent;
 import java.io.IOException;
 
 
+import javax.inject.Inject;
+
 import retrofit.RestAdapter;
 import rx.Observable;
 import rx.Subscriber;
@@ -28,6 +30,9 @@ public class GithubLoginPresenter extends RxPresenter<GithubLoginView> {
     public GithubLoginPresenter(GithubLoginView githubLoginView) {
         super(githubLoginView);
     }
+
+    @Inject
+    private GithubServiceApi githubServiceApi;
 
     @Override
     public void wakeUp() {
@@ -72,14 +77,8 @@ public class GithubLoginPresenter extends RxPresenter<GithubLoginView> {
     }
 
     public Observable<User> getUser() {
-        return createServiceApi().getUserByLogin(getView().getLoginText());
+        return githubServiceApi.getUserByLogin(getView().getLoginText());
     }
 
-    private GithubServiceApi createServiceApi() {
-        RestAdapter restAdapter = new RestAdapter.Builder()
-                .setEndpoint("https://api.github.com")
-                .build();
 
-        return restAdapter.create(GithubServiceApi.class);
-    }
 }
