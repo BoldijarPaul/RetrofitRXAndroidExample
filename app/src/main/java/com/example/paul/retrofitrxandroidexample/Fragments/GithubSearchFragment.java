@@ -40,7 +40,6 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
     TextView mResultTextView;
 
 
-
     private GithubLoginPresenter mPresenter;
 
     public GithubSearchFragment() {
@@ -73,7 +72,7 @@ public class GithubSearchFragment extends Fragment implements GithubLoginView {
     public void onAttach(Context context) {
         super.onAttach(context);
         if (mPresenter == null) {
-            mPresenter = new GithubLoginPresenter(this);
+            mPresenter = new GithubLoginPresenter(this, context);
         }
     }
 

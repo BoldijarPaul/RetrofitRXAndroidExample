@@ -1,7 +1,9 @@
 package com.example.paul.retrofitrxandroidexample.Presenter;
 
+import android.content.Context;
 import android.view.View;
 
+import com.example.paul.retrofitrxandroidexample.Dagger.DaggerApplication;
 import com.example.paul.retrofitrxandroidexample.Models.User;
 import com.example.paul.retrofitrxandroidexample.R;
 import com.example.paul.retrofitrxandroidexample.RetrofitApi.GithubServiceApi;
@@ -27,12 +29,13 @@ import rx.schedulers.Schedulers;
 public class GithubLoginPresenter extends RxPresenter<GithubLoginView> {
 
 
-    public GithubLoginPresenter(GithubLoginView githubLoginView) {
+    public GithubLoginPresenter(GithubLoginView githubLoginView, Context context) {
         super(githubLoginView);
+        DaggerApplication.getApplication(context).getGithubComponent().inject(this);
     }
 
     @Inject
-    private GithubServiceApi githubServiceApi;
+    GithubServiceApi githubServiceApi;
 
     @Override
     public void wakeUp() {
